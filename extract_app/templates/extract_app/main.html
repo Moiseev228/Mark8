@@ -1,0 +1,27 @@
+{% extends "extract_app.html" %}
+
+{% load staticfiles %}
+
+{% block content %}
+<div id="content-main">
+    <div class='head-main'>
+        <h3>ГЛАВНАЯ</h3>
+    </div>
+    <div id="content-list-staff">
+        {%for employee in staff%}
+            <div class='row'>
+                <div class='avatar-block'>
+                    <img src="{% static 'administration_app/img/avatar_user.jpg' %}">
+                </div>
+                <div class='info-block'>
+                    <a href="/administration/staff/{{employee.id}}"><p>{{employee.name}}</p></a>
+                    <p>{{employee.post}}</p>
+                    <p>{{employee.specialization}}</p>
+                </div>
+                <div class='clear'></div>
+            </div>
+        {%endfor%}
+    </div>
+</div>
+
+{% endblock %}

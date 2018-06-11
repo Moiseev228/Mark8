@@ -1,0 +1,54 @@
+{% load staticfiles %}
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Admin Panel</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'logsys/css/style.css' %}">
+</head>
+<body>
+        <form id='loginForm' action="/logsys/login" method="post">
+            <div class="head-login">
+                <h3>АВТОРИЗАЦИЯ</h3>
+            </div>
+            {% csrf_token %}
+            <input type='text' name='username' id='username' value='Логин'
+                onfocus="
+                    this.style.border = '1px solid silver'
+                    if (this.value=='Логин') 
+                    {
+                        this.value='';
+                        this.style.color='black';
+                    }
+                " onblur="
+                    if (this.value=='')
+                    {
+                        this.value='Логин'
+                        this.style.color = 'silver';   
+                        this.style.border = '1px solid red'
+                    }
+                "/>
+            <input type='password' name='password' id='password' value='Пароль'
+                onfocus="
+                    this.style.border = '1px solid silver'
+                    if (this.value=='Пароль') 
+                    {
+                        this.value='';
+                        this.style.color='black';
+                    }
+                " onblur="
+                    if (this.value=='')
+                    {
+                        this.value='Пароль'
+                        this.style.color = 'silver';   
+                        this.style.border = '1px solid red'
+                    }
+                "/>
+            <input type='submit' id='buttonLogin' value='Войти'/>
+            {% if login_error %}
+                <label>{{ login_error }}</label>
+            {% endif %}
+        </form>
+</body>
+</html>

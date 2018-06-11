@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block top_administration %}
+
+{% block top_administration_main%}{% endblock%}
+{% block top_patients %}{% endblock %}
+{% block top_preparations %}{% endblock %}  
+{% block top_recepts %}{% endblock %}
+{% block top_staff %}{% endblock %}
+
+{%endblock%}
+
+{% block user_block %}
+<div id='user-info'>
+    <img src="{% static 'administration_app/img/avatar.png' %}">
+    <h3>Администратор</h3>
+</div>
+{% endblock %}
+
+{% block main_menu %}
+<div id='main-menu'>
+    <div class='item-menu'>
+        <div class='icon-item-menu'>
+            <img src="{% static 'administration_app/img/icon_menu_home.png' %}">
+        </div>
+        <div class='title-item-menu'>
+            <a href='/administration/main'>ГЛАВНАЯ</a>
+        </div>
+        <div class='clear'></div>
+    </div>
+    <div class='item-menu'>
+        <div class='icon-item-menu'>
+            <img src="{% static 'administration_app/img/icon_menu_staff.png' %}">
+        </div>
+        <div class='title-item-menu'>
+            <a href='/administration/staff'>ПЕРСОНАЛ</a>
+        </div>
+        <div class='clear'></div>
+    </div>
+    <div class='item-menu'>
+        <div class='icon-item-menu'>
+            <img src="{% static 'administration_app/img/icon_menu_preparations.png' %}">
+        </div>
+        <div class='title-item-menu'>
+            <a href='/administration/preparations'>ПРЕПАРАТЫ</a>
+        </div>
+        <div class='clear'></div>
+    </div>
+    <div class='item-menu'>
+        <div class='icon-item-menu'>
+            <img src="{% static 'administration_app/img/icon_menu_recipes.png' %}">
+        </div>
+        <div class='title-item-menu'>
+            <a href='/administration/recepts'>ВЫПИСКА ПРЕПАРАТОВ</a>
+        </div>
+        <div class='clear'></div>
+    </div>
+    <div class='item-menu'>
+        <div class='icon-item-menu'>
+            <img src="{% static 'administration_app/img/icon_menu_patients.png' %}">
+        </div>
+        <div class='title-item-menu'>
+            <a href='/administration/patients'>ПАЦИЕНТЫ</a>
+        </div>
+        <div class='clear'></div>
+    </div>
+</div>
+{% endblock %}

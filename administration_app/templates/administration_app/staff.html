@@ -1,0 +1,117 @@
+{% extends "administration_app.html" %}
+{% load staticfiles %}
+
+{% block top_staff %}
+    <input id='search-input-staff' name='search-input' type="text" value="Поиск">
+    <button class='top-menu-buttons' id='search-button' onclick="search()"></button>
+    <button class='top-menu-buttons' id='add-staff-button' onclick="open_dialog('new-employee-window')"></button>
+    <a href="/logsys/logout"><button class='top-menu-buttons' id='logout-button'></button></a>
+    <div class='clear'></div>
+{% endblock %}
+
+{% block content %}
+<div id="list-staff">
+    <div class='head-list-staff'>
+        <h3>ПЕРСОНАЛ</h3>
+    </div>
+    <div id="content-list-staff">
+        {%for employee in staff%}
+            <div class='row'>
+                <div class='avatar-block'>
+                    <img src="{% static 'administration_app/img/avatar_user.jpg' %}">
+                </div>
+                <div class='info-block'>
+                    <a href="/administration/staff/{{employee.id}}">
+                    <p>{{employee.name}}</p>
+                    <p>{{employee.post}}</p>
+                    <p>{{employee.specialization}}</p></a>
+                </div>
+                <div class='clear'></div>
+            </div>
+        {%endfor%}
+    </div>
+</div>
+<div id='details-employee'>
+    {%if flag_view_additional_info%}
+        <div id="main-info">
+            <div class='avatar-block'>
+                <img src="{% static 'administration_app/img/avatar_user.jpg' %}">
+            </div>
+            <div class='info-block'>
+                <p>{{employee.name}}</p>
+                <p>{{employee.post}}</p>
+                <p>{{employee.specialization}}</p>
+            </div>
+            <div class='clear'></div>
+        </div>
+        <div id='contacts'>
+            <div class='item-contact'>
+                <div class='icon-item'>
+                    <img src="{% static 'administration_app/img/phone.png' %}">
+                </div>
+                <div class='title-item'>
+                    <h3>{{employee.phone}}</h3>
+                </div>
+                <div class='clear'></div>
+            </div>
+            <div class='item-contact'>
+                <div class='icon-item'>
+                    <img src="{% static 'administration_app/img/address.png' %}">
+                </div>
+                <div class='title-item'>
+                    <h3>{{employee.address}}</h3>
+                </div>
+                <div class='clear'></div>
+            </div>
+            <div class='item-contact'>
+                <div class='icon-item'>
+                    <img src="{% static 'administration_app/img/passport.png' %}">
+                </div>
+                <div class='title-item'>
+                    <h3>{{employee.passport}}</h3>
+                </div>
+                <div class='clear'></div>
+            </div>
+                </div>
+                <div id='statistics'>
+                    <div id='list-prescribed-preparations'>
+                        {%for recept in employee.prescriptions_issued %}
+                            <div class='prescribed-preparation'>
+                                <div class='row'>
+                                    <div class='icon-item'>
+                                        <img src="{% static 'administration_app/img/marker-circle.png' %}">
+                                    </div>
+                                    <div class='title-item'>
+                                        <h3>{{recept.name}}</h3>
+                                    </div>
+                                    <div class='clear'></div>
+                                </div>
+                                <div class='row'>
+                                    <div class='icon-item'>
+                                        <img src="{% static 'administration_app/img/marker-circle.png' %}">
+                                    </div>
+                                    <div class='title-item'>
+                                        <h3>{{recept.name_patient}}</h3>
+                                    </div>
+                                    <div class='clear'></div>
+                                </div>
+                                <div class='row'>
+                                    <div class='icon-item'>
+                                        <img src="{% static 'administration_app/img/marker-circle.png' %}">
+                                    </div>
+                                    <div class='title-item'>
+                                        <h3>{{recept.date_issue}}</h3>
+                                    </div>
+                                    <div class='clear'></div>
+                                </div>
+                            </div>
+                        {%endfor%}
+                    </div>
+                    <div id='charts'>
+                        
+                    </div>
+                    <div class='clear'></div>
+                </div>
+            {%endif%}
+        </div> 
+{% endblock %}

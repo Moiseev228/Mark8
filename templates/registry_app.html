@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block top_registry %}
+
+{% block top_registry_main%}{% endblock%}
+{% block top_patients%}{% endblock%}
+{% block top_preparations%}{% endblock%}
+
+{% endblock %}
+
+{% block user_block %}
+<div id='user-info'>
+    <img src="{% static 'administration_app/img/avatar_registry.png' %}">
+    <h3>РЕГИСТРАТУРА</h3>
+</div>
+{% endblock %}
+
+{% block main_menu %}
+<div id='main-menu'>
+    <div class='item-menu'>
+        <div class='icon-item-menu'>
+            <img src="{% static 'administration_app/img/icon_menu_home.png' %}">
+        </div>
+        <div class='title-item-menu'>
+            <a href='/registry/main'>ГЛАВНАЯ</a>
+        </div>
+        <div class='clear'></div>
+    </div>
+    <div class='item-menu'>
+        <div class='icon-item-menu'>
+            <img src="{% static 'administration_app/img/icon_menu_preparations.png' %}">
+        </div>
+        <div class='title-item-menu'>
+            <a href='/registry/preparations'>ПРЕПАРАТЫ</a>
+        </div>
+        <div class='clear'></div>
+    </div>
+    <div class='item-menu'>
+        <div class='icon-item-menu'>
+            <img src="{% static 'administration_app/img/icon_menu_patients.png' %}">
+        </div>
+        <div class='title-item-menu'>
+            <a href='/registry/patients'>ПАЦИЕНТЫ</a>
+        </div>
+        <div class='clear'></div>
+    </div>
+</div>
+{% endblock %}

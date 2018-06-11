@@ -1,0 +1,542 @@
+a{
+    text-decoration: none;
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    position: fixed;
+    left:0;
+    top:0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+#left-panel{
+    width: 17%;
+    height: 100%;
+    background-color: rgb(41, 36, 87);
+    float: left;
+}
+#left-panel #user-info{
+    width: 100%;
+    height: auto;
+    border-bottom: 2px solid rgb(3, 20, 65);
+}
+#left-panel #user-info img{
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    margin:0 auto;
+    display: block;
+    margin-top: 20px;
+}
+#left-panel #user-info h3{
+    width: 100%;
+    text-align: center;
+    margin-top:10px;
+    color: #fff;
+    font-family: 'Segoe UI';
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+#left-panel #main-menu{
+    width: 100%;
+}
+#left-panel #main-menu .item-menu{
+    width: 100%;
+    margin-top: 10px;
+}
+#left-panel #main-menu .item-menu .icon-item-menu{
+    width: 15%;
+    float: left;
+    margin-left: 6%;
+}
+#left-panel #main-menu .item-menu .icon-item-menu img{
+    width: 100%;
+    height: auto;
+}
+#left-panel #main-menu .item-menu .title-item-menu{
+    float: left;
+    width: 75%;
+}
+#left-panel #main-menu .item-menu .title-item-menu a{
+    margin-left: 10px;
+    margin-top: 10px;
+    color: rgb(207, 207, 207);
+    font-family: 'Segoe UI';
+    font-weight: 500;
+    font-size: 15px;
+}
+#left-panel #main-menu .item-menu .title-item-menu a:hover{
+    font-size: 14.5px;
+    margin-left: 16px;
+}
+#right-panel{
+    width: 83%;
+    height: 100%;
+    background-color: #fff;
+    float: left;
+}
+#right-panel #top-menu{
+    height: 5%;
+}
+#right-panel #top-menu #search-input-main{
+    height: 100%;
+    width: 82.6%;
+    float: left;
+    border: none;
+    border-bottom: 1px solid silver;
+    font-size: 20px;
+    font-family: 'Segoe UI';
+    padding-left: 15px;
+    color: rgb(255, 255, 255);
+}
+#right-panel #top-menu #search-input-patients{
+    height: 100%;
+    width: 74.6%;
+    float: left;
+    border: none;
+    border-bottom: 1px solid silver;
+    font-size: 20px;
+    font-family: 'Segoe UI';
+    padding-left: 15px;
+    color: rgb(129, 129, 129);
+}
+#right-panel #top-menu #search-input-preparations{
+    height: 100%;
+    width: 74.6%;
+    float: left;
+    border: none;
+    border-bottom: 1px solid silver;
+    font-size: 20px;
+    font-family: 'Segoe UI';
+    padding-left: 15px;
+    color: rgb(129, 129, 129);
+}
+#right-panel #top-menu #search-input-recepts{
+    height: 100%;
+    width: 74.6%;
+    float: left;
+    border: none;
+    border-bottom: 1px solid silver;
+    font-size: 20px;
+    font-family: 'Segoe UI';
+    padding-left: 15px;
+    color: rgb(129, 129, 129);
+}
+
+#right-panel #top-menu #search-input-staff{
+    height: 100%;
+    width: 74.6%;
+    float: left;
+    border: none;
+    border-bottom: 1px solid silver;
+    font-size: 20px;
+    font-family: 'Segoe UI';
+    padding-left: 15px;
+    color: rgb(129, 129, 129);
+}
+#right-panel #top-menu .top-menu-buttons{
+    float: left;
+    width: 8%;
+    height: 100%;
+    background: none;
+    border: none;
+    border-bottom: 1px solid silver;
+    border-left: 1px solid silver;
+    background-position: center;
+    background-size: 40% 70%;
+    background-repeat: no-repeat;
+}
+#right-panel #top-menu .top-menu-buttons-main{
+    float: left;
+    width: 8%;
+    height: 100%;
+    background: none;
+    border: none;
+    border-bottom: 1px solid silver;
+    border-left: 1px solid silver;
+    background-position: center;
+    background-size: 40% 70%;
+    background-repeat: no-repeat;
+}
+#right-panel #top-menu #search-button{
+    background-image: url('../img/search.png');
+}
+#right-panel #top-menu #add-staff-button{
+    background-image: url('../img/add_user.png');
+}
+#right-panel #top-menu #logout-button{
+    background-image: url('../img/logout.png');
+}
+
+#right-panel #content{
+    width: 100%;
+    height: 95%;
+    padding-top: 1%;
+    padding-left: 1%;
+    background-color: rgb(221, 221, 221);
+}
+#right-panel #content #content-main{
+    height: 98%;
+    width: 98%;
+    background-color: #fff;
+}
+#right-panel #content #content-main .head-main{
+    width: 100%;
+    height: 60px;
+    background-color: rgb(41, 36, 87);
+}
+#right-panel #content #content-main .head-main h3{
+    margin-left: 15px;
+    padding-top: 14px;
+    color: rgb(207, 207, 207);
+    font-family: 'Segoe UI';
+    font-weight: 500;
+    font-size: 23px;
+}
+#right-panel #content #list-staff{
+    height: 98%;
+    width: 40%;
+    background-color: #fff;
+    margin-right: 1%;
+    float: left;
+    overflow: scroll;
+}
+#right-panel #content #list-staff .head-list-staff{
+    width: 100%;
+    height: 60px;
+    background-color: rgb(41, 36, 87);
+}
+#right-panel #content #list-staff .head-list-staff h3{
+    margin-left: 15px;
+    padding-top: 14px;
+    color: rgb(207, 207, 207);
+    font-family: 'Segoe UI';
+    font-weight: 500;
+    font-size: 23px;
+}
+#right-panel #content #list-staff #content-list-staff{
+    width: 100%;
+}
+
+#right-panel #content #list-staff #content-list-staff .row{
+    width: 100%;
+    border-bottom: 1px solid silver; 
+}
+#right-panel #content #list-staff #content-list-staff .row .avatar-block{
+    float: left;
+    padding: 10px;
+}
+#right-panel #content #list-staff #content-list-staff .row .avatar-block img{
+    width: 80px;
+    height: 80px;
+    border-radius: 100%;
+}
+#right-panel #content #list-staff #content-list-staff .row .info-block{
+    float: left;
+    padding-top:17px;
+}
+#right-panel #content #list-staff #content-list-staff .row .info-block a{
+    color: black;
+}
+#right-panel #content #list-staff #content-list-staff .row .info-block p{
+    margin-bottom: 3px;
+    font-family: 'Segoe UI';
+    font-weight: 300;
+    font-size: 17px;
+    margin-left: 10px;
+}
+#right-panel #content #details-employee{
+    height: 98%;
+    width: 57%;
+    background-color: #fff;
+    float: left;
+}
+#right-panel #content #details-employee #main-info{
+    width: 95%;
+    margin: 0 auto;
+    margin-top: 2%;
+    border-bottom: 1px solid silver; 
+    margin-bottom: 13px;
+    height: 13%;
+}
+
+#right-panel #content  #details-employee #main-info .avatar-block{
+    float: left;
+    padding: 10px;
+    margin-bottom: 5px;
+}
+#right-panel #content #details-employee #main-info .avatar-block img{
+    width: 80px;
+    height: 80px;
+    border-radius: 100%;
+}
+#right-panel #content #details-employee #main-info .info-block{
+    float: left;
+    padding-top:17px;
+}
+#right-panel #content #details-employee #main-info .info-block p{
+    margin-bottom: 3px;
+    font-family: 'Segoe UI';
+    font-weight: 300;
+    font-size: 17px;
+    margin-left: 10px;
+}
+
+#right-panel #content #details-employee #contacts{
+    width: 95%;
+    margin: 0 auto;
+    border-bottom: 1px solid silver; 
+    height: 15%;
+}
+#right-panel #content #details-employee #contacts .item-contact{
+    width: 100%;
+    margin-bottom: 13px;
+
+}
+#right-panel #content #details-employee #contacts .item-contact .icon-item{
+    float: left;
+    margin-left: 5px;
+
+}
+#right-panel #content #details-employee #contacts .item-contact .icon-item img{
+    width: 20px;
+    height: auto;
+}
+#right-panel #content #details-employee #contacts .item-contact .title-item{
+    float: left;
+    padding-left: 5px;
+}
+#right-panel #content #details-employee #contacts .item-contact .title-item h3{
+    font-family: 'Segoe UI';
+    font-weight: 300;
+    font-size: 15px;
+    
+}
+
+#right-panel #content #details-employee #statistics{
+    width: 95%;
+    margin: 0 auto;
+    margin-top: 2%;
+    margin-bottom: 13px;
+    height: 70%;
+}
+#right-panel #content #details-employee #statistics #list-prescribed-preparations{
+    width: 49%;
+    height: 100%;
+    float: left;
+    overflow: auto;
+}
+#right-panel #content #details-employee #statistics #list-prescribed-preparations .prescribed-preparation{
+    width: 94%;
+    margin: 0 auto;
+    padding-bottom: 5px;
+    border-bottom: 1px solid silver; 
+}
+#right-panel #content #details-employee #statistics #list-prescribed-preparations .prescribed-preparation .row{
+    margin-bottom: 5px;
+}
+#right-panel #content #details-employee #statistics #list-prescribed-preparations .prescribed-preparation .row .icon-item{
+    float: left;
+    margin-left: 5px;
+}
+#right-panel #content #details-employee #statistics #list-prescribed-preparations .prescribed-preparation .row .icon-item img{
+    width: 10px;
+    height: auto;
+    margin-top: 6px;
+}
+#right-panel #content #details-employee #statistics #list-prescribed-preparations .prescribed-preparation .row .title-item{
+    float: left;
+    padding-left: 5px;
+}
+#right-panel #content #details-employee #statistics #list-prescribed-preparations .prescribed-preparation .row .title-item h3{
+    font-family: 'Segoe UI';
+    font-weight: 300;
+    font-size: 15px;
+}
+
+#right-panel #content #details-employee #statistics #charts{
+    width: 49%;
+    border-left: 1px solid silver;
+    float: left;
+    height: 100%;
+}
+.clear{
+    clear: both;
+}
+
+.head-window{
+    width: 100%;
+    height: 10%;
+    background-color: rgb(41, 36, 87);
+}
+.head-window h3{
+    margin-left: 15px;
+    padding-top: 14px;
+    color: rgb(207, 207, 207);
+    font-family: 'Segoe UI';
+    font-weight: 500;
+    font-size: 23px;
+}
+.content-window{
+    width: 100%;
+    height: 90%;
+}
+#new-employee-window{
+    width: 30%;
+    height: 65%;
+    background-color: #fff;
+    z-index: 10;
+    margin: 0 auto;
+    margin-top: 10%;
+    border-color: rgb(41, 36, 87);
+}
+#new-employee-window input,select, button{
+    font-family: 'Segoe UI';
+    font-weight: 300;
+    font-size: 15px;
+    padding: 5px 10px;
+    color: #b1afaf;
+}
+#new-employee-window input,select{
+    display: block;
+    margin: 0 auto;
+    width: 70%;
+    margin-top: 10px;
+    box-sizing: inherit;   
+}
+#new-employee-window button{
+    width: 20%;
+    margin-right: 6%;
+    margin-top: 10px;
+    background-color: rgb(41, 36, 87);
+    border: none;
+    color: #fff;
+}
+
+#new-employee-window #add{
+    margin-left: 25%;
+}
+
+#waring-dialog{
+    height: 20%;
+    width: 20%;
+    z-index: 100;
+    margin: 0 auto;
+    margin-top: 20%;
+    border-color: rgb(41, 36, 87);
+}
+#waring-dialog .head-window{
+    height: 40px;
+}
+#waring-dialog .head-window h3{
+    font-size: 19px;
+    padding-top: 8px;
+}
+#waring-dialog .content-window h3{
+    display: block;
+    margin: 0 auto;
+    font-family: 'Segoe UI';
+    font-weight: 300;
+    font-size: 25px;
+    width: 90%;
+    text-align: center;
+    padding-top: 10px;
+}
+#waring-dialog button{
+    display: block;
+    width: 20%;
+    margin: 0 auto;
+    margin-top: 17px;
+    background-color: rgb(41, 36, 87);
+    border: none;
+    color: #fff;
+}
+
+@media (min-width: 1200px)  {
+    .top-menu-buttons{
+        width: 5%;
+    }
+}
+
+/* new-patient-window */
+
+#new-patient-window{
+    width: 30%;
+    height: 65%;
+    background-color: #fff;
+    z-index: 10;
+    margin: 0 auto;
+    margin-top: 10%;
+    border-color: rgb(41, 36, 87);
+}
+#new-patient-window input,select, button{
+    font-family: 'Segoe UI';
+    font-weight: 300;
+    font-size: 15px;
+    padding: 5px 10px;
+    color: #b1afaf;
+}
+#new-patient-window input,select{
+    display: block;
+    margin: 0 auto;
+    width: 70%;
+    margin-top: 10px;
+    box-sizing: inherit;   
+}
+#new-patient-window button{
+    width: 20%;
+    margin-right: 6%;
+    margin-top: 10px;
+    background-color: rgb(41, 36, 87);
+    border: none;
+    color: #fff;
+}
+
+#new-patient-window #add{
+    margin-left: 25%;
+}
+
+#waring-dialog{
+    height: 20%;
+    width: 20%;
+    z-index: 100;
+    margin: 0 auto;
+    margin-top: 20%;
+    border-color: rgb(41, 36, 87);
+}
+#waring-dialog .head-window{
+    height: 40px;
+}
+#waring-dialog .head-window h3{
+    font-size: 19px;
+    padding-top: 8px;
+}
+#waring-dialog .content-window h3{
+    display: block;
+    margin: 0 auto;
+    font-family: 'Segoe UI';
+    font-weight: 300;
+    font-size: 25px;
+    width: 90%;
+    text-align: center;
+    padding-top: 10px;
+}
+#waring-dialog button{
+    display: block;
+    width: 20%;
+    margin: 0 auto;
+    margin-top: 17px;
+    background-color: rgb(41, 36, 87);
+    border: none;
+    color: #fff;
+}
+
+@media (min-width: 1200px)  {
+    .top-menu-buttons{
+        width: 5%;
+    }
+}

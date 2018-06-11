@@ -1,0 +1,107 @@
+{% extends "extract_app.html" %}
+
+{% load staticfiles %}
+
+{% block content %}
+<div id="list-staff">
+    <div class='head-list-staff'>
+        <h3>АРХИВ</h3>
+    </div>
+    <div id="content-list-staff">
+        {%for patien in patiens%}
+            <div class='row'>
+                <div class='avatar-block'>
+                    <img src="{% static 'administration_app/img/pacient_avatar.png' %}">
+                </div>
+                <div class='info-block'>
+                    <a href="/administration/patients/{{patien.id}}"><p>{{patien.name}}</p></a>
+                    <p>{{patien.address}}</p>
+                    <p>{{patien.polis}}</p>
+                </div>
+                <div class='clear'></div>
+            </div>
+        {%endfor%}
+    </div>
+</div>
+<div id='details-employee'>
+    {%if flag_view_additional_info%}
+        <div id="main-info">
+            <div class='avatar-block'>
+                <img src="{% static 'administration_app/img/pacient_avatar.png' %}">
+            </div>
+            <div class='info-block'>
+                <p>{{patien.name}}</p>
+                <p>{{patien.address}}</p>
+                <p>{{patien.polis}}</p>
+            </div>
+            <div class='clear'></div>
+        </div>
+        <div id='contacts'>
+            <div class='item-contact'>
+                <div class='icon-item'>
+                    <img src="{% static 'administration_app/img/phone.png' %}">
+                </div>
+                <div class='title-item'>
+                    <h3>Что то</h3>
+                </div>
+                <div class='clear'></div>
+            </div>
+            <div class='item-contact'>
+                <div class='icon-item'>
+                    <img src="{% static 'administration_app/img/address.png' %}">
+                </div>
+                <div class='title-item'>
+                    <h3>Что то</h3>
+                </div>
+                <div class='clear'></div>
+            </div>
+            <div class='item-contact'>
+                <div class='icon-item'>
+                    <img src="{% static 'administration_app/img/passport.png' %}">
+                </div>
+                <div class='title-item'>
+                    <h3>Что то</h3>
+                </div>
+                <div class='clear'></div>
+            </div>
+                </div>
+                <div id='statistics'>
+                    <div id='list-prescribed-preparations'>
+                        <div class='prescribed-preparation'>
+                            <div class='row'>
+                                <div class='icon-item'>
+                                    <img src="{% static 'administration_app/img/marker-circle.png' %}">
+                                </div>
+                                <div class='title-item'>
+                                    <h3>Название лекарства</h3>
+                                </div>
+                                <div class='clear'></div>
+                            </div>
+                            <div class='row'>
+                                <div class='icon-item'>
+                                    <img src="{% static 'administration_app/img/marker-circle.png' %}">
+                                </div>
+                                <div class='title-item'>
+                                    <h3>Имя пациента</h3>
+                                </div>
+                                <div class='clear'></div>
+                            </div>
+                            <div class='row'>
+                                <div class='icon-item'>
+                                    <img src="{% static 'administration_app/img/marker-circle.png' %}">
+                                </div>
+                                <div class='title-item'>
+                                    <h3>Дата выписки</h3>
+                                </div>
+                                <div class='clear'></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id='charts'>
+                        
+                    </div>
+                    <div class='clear'></div>
+                </div>
+            {%endif%}
+        </div> 
+{% endblock %}

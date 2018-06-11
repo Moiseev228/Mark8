@@ -1,0 +1,109 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Администрирование</title>
+        <link rel="stylesheet" href="{% static 'administration_app/css/style.css' %}"/>
+        <script src="{% static 'administration_app/js/main.js' %}"></script>
+        <script src="{% static 'registry_app/js/main.js' %}"></script>
+        <script src="{% static 'administration_app/js/jquery-3.0.0.min.js' %}"></script>
+    </head>
+    <body>
+        <div id = 'left-panel'>
+            {% block user_block %} {% endblock %}
+            {% block main_menu %} {% endblock %}
+        </div>
+        <div id = 'right-panel'>
+            <div id = 'top-menu'>
+                {% block top_registry %}{%endblock%}
+                {% block top_administration %}{%endblock%}
+                {% block top_extract %}{%endblock%}
+            </div>
+            <div id='content'>
+                {% block content %} {% endblock %}
+            </div>
+        </div>
+    
+
+    <dialog id='new-employee-window' class='close-window'>
+        <div class='head-window'>
+            <h3>НОВЫЙ РАБОТНИК</h3>
+        </div>
+        <div class="content-window">
+            <input type='text' id='login' value='Логин'>
+            <input type='text' id='password' value='Пароль'>
+            <input type='text' id='re-password' value='Повторите пароль'>
+            <input type='text' id='name_employee' value='Имя'>
+            <input type='text' id='last_name_employee' value='Фамилия'>
+            <select id='post'>
+                <option>Должность</option>
+                <option value="Врач">Врач</option>
+                <option value="Медсестра">Медсестра</option>
+                <option value="Акушер">Акушер</option>
+                <option value="Санитар">Санитар</option>
+            </select>
+            <select id='specialization'>
+                <option>Специализация</option>
+                <option value="Терапевт">Терапевт</option>
+                <option value="Офтальмолог">Офтальмолог</option>
+                <option value="Дантист">Дантист</option>
+                <option value="Херург">Херург</option>
+            </select>
+            <select id='type-users'>
+                <option>Права доступа</option>
+                <option value="Администратор">Администратор</option>
+                <option value="Врач">Врач</option>
+                <option value="Доп-персонал">Доп-персонал</option>
+            </select>
+            <input type='text' id='phone' value='Телефон'>
+            <input type='text' id='address' value='Адрес'>
+            <input type='text' id='passport' value='Серия и номер паспорта'>
+            <button onclick="add_employee()" id='add'>Добавить</button>
+            <button onclick="close_window('new-employee-window')" id='cancel' autofocus>Отмена</button>
+        </div>
+    </dialog>
+
+    <dialog id='new-patient-window' class='close-window'>
+        <div class='head-window'>
+            <h3>НОВЫЙ ПАЦИЕНТ</h3>
+        </div>
+        <div class="content-window">
+            <input type='text' id='name_patient' value='Имя пациента'>
+            <input type='text' id='address' value='Адресс'>
+            <input type='text' id='phone' value='Номер телефона'>
+            <input type='text' id='polis' value='Полис'>
+            <input type='text' id='date_of_birth' value='Дата рождения'>
+            <select id='sector'>
+                <option>Участок</option>
+                <option value="Участок 1">Участок 1</option>
+                <option value="Участок 2">Участок 2</option>
+                <option value="Участок 3">Участок 3</option>
+                <option value="Участок 4">Участок 4</option>
+                <option value="Участок 5">Участок 5</option>
+                <option value="Участок 6">Участок 6</option>
+                <option value="Участок 7">Участок 7</option>
+                <option value="Участок 8">Участок 8</option>
+                <option value="Участок 9">Участок 9</option>
+                <option value="Участок 10">Участок 10</option>
+                <option value="Участок 11">Участок 11</option>
+            </select>
+            <input type='text' id='Recording_date' value='Дата записи'>           
+            <button onclick="add_patient()" id='add'>Добавить</button>
+            <button onclick="close_window('new-patient-window')" id='cancel' autofocus>Отмена</button>
+        </div>
+    </dialog>
+
+
+    <dialog id='waring-dialog' class='close-window'>
+        <div class='head-window'>
+            <h3>ЧТО ТО ПОШЛО НИ ТАК</h3>
+        </div>
+        <div class="content-window">
+            <h3 id='waring-text'></h3>
+            <button onclick="close_window('waring-dialog')" id='cancel'>Отмена</button>
+        </div>
+    </dialog>
+
+    </body>
+    <script>after_downloading()</script>
+</html>
