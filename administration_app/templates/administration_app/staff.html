@@ -26,6 +26,10 @@
                     <p>{{employee.post}}</p>
                     <p>{{employee.specialization}}</p></a>
                 </div>
+                <div class ='delete-block'>
+                    <a href=/administration/delete-employee/{{employee.id}}>
+                    <img src="{% static 'administration_app/img/delete.png' %}"></a>
+                </div>
                 <div class='clear'></div>
             </div>
         {%endfor%}
@@ -82,7 +86,7 @@
                                         <img src="{% static 'administration_app/img/marker-circle.png' %}">
                                     </div>
                                     <div class='title-item'>
-                                        <h3>{{recept.name}}</h3>
+                                        <h3>{{recept.name_prepations}}</h3>
                                     </div>
                                     <div class='clear'></div>
                                 </div>
@@ -91,7 +95,7 @@
                                         <img src="{% static 'administration_app/img/marker-circle.png' %}">
                                     </div>
                                     <div class='title-item'>
-                                        <h3>{{recept.name_patient}}</h3>
+                                        <h3>{{recept.lastname_patient}} {{recept.name_patient}} {{recept.patronymic_patient}}</h3>
                                     </div>
                                     <div class='clear'></div>
                                 </div>

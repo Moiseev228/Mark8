@@ -23,7 +23,6 @@ function add_patient(){
             'address':document.getElementById('address').value,
             'polis':document.getElementById('polis').value,
             'phone':document.getElementById('phone').value,
-
             'date_of_birth':document.getElementById('date_of_birth').value,
             'sector':document.getElementById('sector').value,
             'Recording_date':document.getElementById('Recording_date').value,

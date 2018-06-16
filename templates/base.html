@@ -6,6 +6,7 @@
         <link rel="stylesheet" href="{% static 'administration_app/css/style.css' %}"/>
         <script src="{% static 'administration_app/js/main.js' %}"></script>
         <script src="{% static 'registry_app/js/main.js' %}"></script>
+        <script src="{% static 'extract_app/js/main.js' %}"></script>
         <script src="{% static 'administration_app/js/jquery-3.0.0.min.js' %}"></script>
     </head>
     <body>
@@ -93,6 +94,21 @@
         </div>
     </dialog>
 
+    <dialog id='new-recept-window' class='close-window'>
+        <div class='head-window'>
+            <h3>ДОБАВИТЬ ВЫПИСКУ</h3>
+        </div>
+        <div class="content-window">
+                <input type='text' id='name_prepations' value='Имя препарата'>
+                <input type='text' id='name_patient' value='Имя пациента'>
+                <input type='text' id='lastname_patient' value='Фамилия пациента'>
+                <input type='text' id='patronymic_patient' value='Отчество пациента'>
+                <input type='text' id='diagnos' value='Диагноз'>
+                <input type='text' id='date_issue' value='Дата выписки'>           
+            <button onclick="add_recept()" id='add'>Добавить</button>
+            <button onclick="close_window('new-recept-window')" id='cancel' autofocus>Отмена</button>
+        </div>
+    </dialog>
 
     <dialog id='waring-dialog' class='close-window'>
         <div class='head-window'>
@@ -107,3 +123,4 @@
     </body>
     <script>after_downloading()</script>
 </html>
+

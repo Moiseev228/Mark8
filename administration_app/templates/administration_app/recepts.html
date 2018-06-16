@@ -2,8 +2,8 @@
 {% load staticfiles %}
 
 {% block top_recepts %}
-    <input id='search-input-recepts' name='search-input' type="text" value="Поиск">
-    <button class='top-menu-buttons' id='search-button'></button>
+    <input id='search-input-recepts' name='search-input-recepts' type="text" value="Поиск">
+    <button class='top-menu-buttons' id='search-button-recepts' onclick="search_recepts()"></button>
     <button class='top-menu-buttons' id='add-staff-button' onclick="open_dialog('new-employee-window')"></button>
     <a href="/logsys/logout"><button class='top-menu-buttons' id='logout-button'></button></a>
     <div class='clear'></div>
@@ -21,10 +21,15 @@
                     <img src="{% static 'administration_app/img/recipets_avatar.png' %}">
                 </div>
                 <div class='info-block'>
-                    <a href="/administration/recepts/1"> 
-                    <p> {{recept.name_patients}}</p> </a>
+                    <a href="/administration/recepts/{{recept.id}}"> 
+                    <p>{{recept.lastname_patient}} {{recept.name_patient}} {{recept.patronymic_patient}}</p>
+                    <p>{{recept.name_prepations}}</p>
                     <p>{{recept.name_employee}}</p>
-                    <p>{{recept.date_issue}}</p>
+                    <p>{{recept.date_issue}}</p></a>
+                </div>
+                <div class ='delete-block'>
+                    <a href=/administration/delete-recept/{{recept.id}}>
+                    <img src="{% static 'administration_app/img/delete.png' %}"></a>
                 </div>
                 <div class='clear'></div>
             </div>
@@ -38,8 +43,9 @@
                 <img src="{% static 'administration_app/img/recipets_avatar.png' %}">
             </div>
             <div class='info-block'>
-                <p>{{recept.name_patients}}</p>
+                <p>{{recept.lastname_patient}} {{recept.name_patient}} {{recept.patronymic_patient}}</p>
                 <p>{{recept.name_employee}}</p>
+                <p>{{recept.name_prepations}}</p>
                 <p>{{recept.date_issue}}</p>
             </div>
             <div class='clear'></div>

@@ -14,22 +14,17 @@ function close_window(id_dialog){
     dialog.close();    
 }
 
-function add_employee(){
+function add_recept(){
     $.ajax({
         type: "GET",
-        url: "../new_employee/",
+        url: "../new_recept/",
         data:{
-            'login':document.getElementById('login').value,
-            'password':document.getElementById('password').value,
-            'password_repit':document.getElementById('re-password').value,
-            'name':document.getElementById('name_employee').value,
-            'lastname':document.getElementById('last_name_employee').value,
-            'post':document.getElementById('post').value,
-            'specialization':document.getElementById('specialization').value,
-            'type_users':document.getElementById('type-users').value,
-            'phone':document.getElementById('phone').value,
-            'address':document.getElementById('address').value,
-            'passport':document.getElementById('passport').value,
+            'name_prepations':document.getElementById('name_prepations').value,
+            'name_patient':document.getElementById('name_patient').value,
+            'lastname_patient':document.getElementById('lastname_patient').value,
+            'patronymic_patient':document.getElementById('patronymic_patient').value,
+            // 'diagnos':document.getElementById('diagnos').value,
+            // 'date_issue':document.getElementById('date_issue').value,
         },
         dataType: "html",
         cache: false,
@@ -37,48 +32,25 @@ function add_employee(){
             if (data == 'ok'){
                 location.reload();
             }
-            else if(data == 'repit_login'){
-                waring_text = 'Пользователь с таким именем уже существует';
+            else if(data='repit_polis'){
+                waring_text = 'Пользователь с таким полисом уже существует';
                 open_waring_dialog(waring_text);
             }
         }
    });
 }
 
-function search(){
-    var qwery = 'http://127.0.0.1:8000/administration/staff/search?search_term=';
-    qwery+=document.getElementById('search-input-staff').value;
-    location.replace(qwery);
-}
-
-function search_preparations(){
-    var qwery = 'http://127.0.0.1:8000/administration/preparations/search?search_term=';
-    qwery+=document.getElementById('search-input-preparations').value;
-    location.replace(qwery);
-}
-
-function search_patients(){
-    var qwery = 'http://127.0.0.1:8000/administration/patients/search?search_term=';
-    qwery+=document.getElementById('search-input-patients').value;
-    location.replace(qwery);
-}
-
-function search_recepts(){
-    var qwery = 'http://127.0.0.1:8000/administration/recepts/search?search_term=';
-    qwery+=document.getElementById('search-input-recepts').value;
-    location.replace(qwery);
-}
 
 function after_downloading() {
-    document.getElementById('login').onfocus = function(){
-        if (this.value == 'Логин') {
+    document.getElementById('name_patient').onfocus = function(){
+        if (this.value == 'Имя пациента') {
             this.value = '';
             this.style.color = 'black';
         }
     }
-    document.getElementById('login').onblur = function(){
+    document.getElementById('name_patient').onblur = function(){
         if (this.value == '') {
-            this.value = 'Логин';
+            this.value = 'Имя пациента';
             this.style.color = '#b1afaf';
         }
     }
@@ -205,8 +177,7 @@ function after_downloading() {
         }
     }
 
-
-
+    
     document.getElementById('search-input').onfocus = function(){
         if (this.value == 'Поиск') {
             this.value = '';
@@ -220,45 +191,22 @@ function after_downloading() {
         }
     }
 
-
-    document.getElementById('search-input-prepations').onfocus = function(){
-        if (this.value == 'Поиск') {
-            this.value = '';
-            this.style.color = 'black';
-        }
+    document.getElementById('search-button').onclick = function(){
+        // url = window.location.pathname;
+        // if (~url.indexOf("staff")) {
+        //     location.replace("http://127.0.0.1:8000/administration/staff/");
+        // }
+        $.ajax({
+            type: "GET",
+            url: "./search",
+            data:{
+                'search_term':document.getElementById('search-input').value,
+            },
+            dataType: "html",
+            cache: false,
+            success: function(data){
+                
+            }
+       });
     }
-    document.getElementById('search-input-prepations').onblur = function(){
-        if (this.value == '') {
-            this.value = 'Поиск';
-            this.style.color = '#b1afaf';
-        }
-    }
-
-
-    document.getElementById('search-input-patients').onfocus = function(){
-        if (this.value == 'Поиск') {
-            this.value = '';
-            this.style.color = 'black';
-        }
-    }
-    document.getElementById('search-input-patients').onblur = function(){
-        if (this.value == '') {
-            this.value = 'Поиск';
-            this.style.color = '#b1afaf';
-        }
-    }
-
-    document.getElementById('search-input-recepts').onfocus = function(){
-        if (this.value == 'Поиск') {
-            this.value = '';
-            this.style.color = 'black';
-        }
-    }
-    document.getElementById('search-input-recepts').onblur = function(){
-        if (this.value == '') {
-            this.value = 'Поиск';
-            this.style.color = '#b1afaf';
-        }
-    }
-    
 }

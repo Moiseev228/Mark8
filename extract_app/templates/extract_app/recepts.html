@@ -1,22 +1,31 @@
 {% extends "extract_app.html" %}
-
 {% load staticfiles %}
+
+{% block top_recepts %}
+    <input id='search-input-recepts' name='search-input-recepts' type="text" value="Поиск">
+    <button class='top-menu-buttons' id='search-button-recepts'></button>
+    <button class='top-menu-buttons' id='add-recept-button' onclick="open_dialog('new-recept-window')"></button>
+    <a href="/logsys/logout"><button class='top-menu-buttons' id='logout-button'></button></a>
+    <div class='clear'></div>
+{% endblock %}
 
 {% block content %}
 <div id="list-staff">
     <div class='head-list-staff'>
-        <h3>АРХИВ</h3>
+        <h3>ВЫПИСКА ПРЕПАРАТОВ</h3>
     </div>
     <div id="content-list-staff">
-        {%for patien in patiens%}
+        {%for recept in recepts%}
             <div class='row'>
                 <div class='avatar-block'>
-                    <img src="{% static 'administration_app/img/pacient_avatar.png' %}">
+                    <img src="{%  static 'administration_app/img/recipets_avatar.png' %}">
                 </div>
                 <div class='info-block'>
-                    <a href="/administration/patients/{{patien.id}}"><p>{{patien.name}}</p></a>
-                    <p>{{patien.address}}</p>
-                    <p>{{patien.polis}}</p>
+                    <a href="/extract/recepts/{{recept.id}}">
+                    <p>{{recept.lastname_patient}} {{recept.name_patient}} {{recept.patronymic_patient}}</p>
+                    <p>{{recept.name_prepations}}</p>
+                    <p>{{recept.name_employee}}</p>
+                    <p>{{recept.date_issue}}</p></a>
                 </div>
                 <div class='clear'></div>
             </div>
@@ -27,12 +36,13 @@
     {%if flag_view_additional_info%}
         <div id="main-info">
             <div class='avatar-block'>
-                <img src="{% static 'administration_app/img/pacient_avatar.png' %}">
+                <img src="{% static 'administration_app/img/recipets_avatar.png' %}">
             </div>
             <div class='info-block'>
-                <p>{{patien.name}}</p>
-                <p>{{patien.address}}</p>
-                <p>{{patien.polis}}</p>
+                <p>{{recept.lastname_patient}} {{recept.name_patient}} {{recept.patronymic_patient}}</p>
+                <p>{{recept.name_employee}}</p>
+                <p>{{recept.name_prepations}}</p>
+                <p>{{recept.date_issue}}</p>
             </div>
             <div class='clear'></div>
         </div>

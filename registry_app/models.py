@@ -7,7 +7,7 @@ class Prepations(models.Model):
     type_prepations = models.CharField(max_length = 100)
     maker = models.CharField(max_length = 50, default = " ")
     form_release = models.CharField(max_length = 30, default = " ")
-    
+
 class List_prepations(models.Model):
     id_recept = models.IntegerField()
     id_pripations = models.IntegerField()
@@ -15,6 +15,7 @@ class List_prepations(models.Model):
 class Patiens(models.Model):
     name = models.CharField(max_length=50)
     lastname = models.CharField(max_length=50, default = " ")
+    patronymic = models.CharField(max_length=50, default = " ")
     address = models.CharField(max_length = 100)  
     polis = models.CharField(max_length = 16)
     phone = models.CharField(max_length = 15, default = " ")     

@@ -2,6 +2,11 @@
 
 {% load staticfiles %}
 
+{% block top_extract %}
+{% block top_recepts %}{% endblock %}
+{% block top_extract_main %}{% endblock%}
+{% endblock %}
+
 {% block user_block %}
 <div id='user-info'>
     <img src="{% static 'administration_app/img/extract.png' %}">
@@ -25,7 +30,7 @@
             <img src="{% static 'administration_app/img/icon_menu_staff.png' %}">
         </div>
         <div class='title-item-menu'>
-            <a href='/extract/archive'>АРХИВ</a>
+            <a href='/extract/recepts'>ВЫПИСКА ПРЕПАРАТОВ</a>
         </div>
         <div class='clear'></div>
     </div>
