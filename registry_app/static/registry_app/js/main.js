@@ -13,6 +13,29 @@ function close_window(id_dialog){
     var dialog = document.getElementById(id_dialog);
     dialog.close();    
 }
+function add_prepations(){
+    $.ajax({
+        type: "GET",
+        url: "../new_prepations/",
+        data:{
+            'name':document.getElementById('name').value,
+            'type_prepations':document.getElementById('type_prepations').value,
+            'maker':document.getElementById('maker').value,
+            'form_release':document.getElementById('form_release').value,
+        },
+        dataType: "html",
+        cache: false,
+        success: function(data){
+            if (data == 'ok'){
+                location.reload();
+            }
+            else if(data='repit_polis'){
+                waring_text = 'Пользователь с таким полисом уже существует';
+                open_waring_dialog(waring_text);
+            }
+        }
+   });
+}
 
 function add_patient(){
     $.ajax({

@@ -27,6 +27,10 @@
                     <p>{{recept.name_employee}}</p>
                     <p>{{recept.date_issue}}</p></a>
                 </div>
+                    <div class ='delete-block'>
+                        <a href=/extract/delete_recept/{{recept.id}}>
+                                <img src="{% static 'administration_app/img/delete.png' %}"></a>
+                    </div>
                 <div class='clear'></div>
             </div>
         {%endfor%}
@@ -79,11 +83,11 @@
                     <div id='list-prescribed-preparations'>
                         <div class='prescribed-preparation'>
                             <div class='row'>
-                                <div class='icon-item'>
+                                <!-- <div class='icon-item'>
                                     <img src="{% static 'administration_app/img/marker-circle.png' %}">
                                 </div>
                                 <div class='title-item'>
-                                    <h3>Название лекарства</h3>
+                                    <h3>{{type_prepations}}</h3>
                                 </div>
                                 <div class='clear'></div>
                             </div>
@@ -103,7 +107,7 @@
                                 <div class='title-item'>
                                     <h3>Дата выписки</h3>
                                 </div>
-                                <div class='clear'></div>
+                                <div class='clear'></div> -->
                             </div>
                         </div>
                     </div>

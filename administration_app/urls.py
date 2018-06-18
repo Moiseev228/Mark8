@@ -26,6 +26,6 @@ urlpatterns = [
     url(r'^patients/search/$', views.patients_search, name='patients_search'),
     url(r'^patients/$', views.get_patients_page, name='get_patients_page'),
     url(r'^patients/(?P<id_patients>\d+)', views.get_patient, name='get_patient'),
-     url(r'^delete-patient/(?P<id_patien>\d+)', views.delet_patient, name='delet_patient'),
+    url(r'^delete-patient/(?P<id_patien>\d+)', views.delet_patient, name='delet_patient'),
     
 ]

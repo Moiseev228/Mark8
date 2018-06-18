@@ -93,18 +93,39 @@
             <button onclick="close_window('new-patient-window')" id='cancel' autofocus>Отмена</button>
         </div>
     </dialog>
-
+    
+    <dialog id='new-prepation-window' class='close-window'>
+        <div class='head-window'>
+            <h3>НОВЫЙ ПРЕПАРАТ</h3>
+        </div>
+        <div class="content-window">
+            <input type='text' id='name' value='Название'>
+            <input type='text' id='type_prepations' value='Тип'>
+            <input type='text' id='maker' value='Производитель'>  
+            <input type='text' id='form_release' value='Форма выписки'>             
+            <button onclick="add_prepations()" id='add'>Добавить</button>
+            <button onclick="close_window('new-prepation-window')" id='cancel' autofocus>Отмена</button>
+        </div>
+    </dialog>
+    
     <dialog id='new-recept-window' class='close-window'>
         <div class='head-window'>
             <h3>ДОБАВИТЬ ВЫПИСКУ</h3>
         </div>
         <div class="content-window">
-                <input type='text' id='name_prepations' value='Имя препарата'>
-                <input type='text' id='name_patient' value='Имя пациента'>
-                <input type='text' id='lastname_patient' value='Фамилия пациента'>
-                <input type='text' id='patronymic_patient' value='Отчество пациента'>
-                <input type='text' id='diagnos' value='Диагноз'>
-                <input type='text' id='date_issue' value='Дата выписки'>           
+            <select id='name_prepations'>
+                <option>Препарат</option>
+                {%for prepation in list_prepations%}
+                    <option value="{{prepation.id}}">{{prepation.name}}</option>
+                {%endfor%}    
+            </select>
+            <select id='name_patients'>
+                <option>ФИО Пациента</option>
+                {%for patient in list_patients%}
+                    <option value="{{patient.id}}">{{patient.name}} {{patient.lastname}} {{patient.patronymic}}</option>
+                {%endfor%}
+            </select>
+            <input type='text' id='date_issue' value='Дата выписки'>
             <button onclick="add_recept()" id='add'>Добавить</button>
             <button onclick="close_window('new-recept-window')" id='cancel' autofocus>Отмена</button>
         </div>

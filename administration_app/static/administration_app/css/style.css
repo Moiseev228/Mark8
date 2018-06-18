@@ -646,4 +646,84 @@ body{
     .top-menu-buttons{
         width: 5%;
     }
+
+}
+
+/* new-patient-window */
+
+#new-prepation-window{
+    width: 30%;
+    height: 65%;
+    background-color: #fff;
+    z-index: 10;
+    margin: 0 auto;
+    margin-top: 10%;
+    border-color: rgb(41, 36, 87);
+}
+#new-prepation-window input,select, button{
+    font-family: 'Segoe UI';
+    font-weight: 300;
+    font-size: 15px;
+    padding: 5px 10px;
+    color: #b1afaf;
+}
+#new-prepation-window input,select{
+    display: block;
+    margin: 0 auto;
+    width: 70%;
+    margin-top: 10px;
+    box-sizing: inherit;   
+}
+#new-prepation-window button{
+    width: 20%;
+    margin-right: 6%;
+    margin-top: 10px;
+    background-color: rgb(41, 36, 87);
+    border: none;
+    color: #fff;
+}
+
+#new-prepation-window #add{
+    margin-left: 25%;
+}
+
+#waring-dialog{
+    height: 20%;
+    width: 20%;
+    z-index: 100;
+    margin: 0 auto;
+    margin-top: 20%;
+    border-color: rgb(41, 36, 87);
+}
+#waring-dialog .head-window{
+    height: 40px;
+}
+#waring-dialog .head-window h3{
+    font-size: 19px;
+    padding-top: 8px;
+}
+#waring-dialog .content-window h3{
+    display: block;
+    margin: 0 auto;
+    font-family: 'Segoe UI';
+    font-weight: 300;
+    font-size: 25px;
+    width: 90%;
+    text-align: center;
+    padding-top: 10px;
+}
+#waring-dialog button{
+    display: block;
+    width: 20%;
+    margin: 0 auto;
+    margin-top: 17px;
+    background-color: rgb(41, 36, 87);
+    border: none;
+    color: #fff;
+}
+
+@media (min-width: 1200px)  {
+    .top-menu-buttons{
+        width: 5%;
+    }
 }

@@ -43,7 +43,7 @@
                 <img src="{% static 'administration_app/img/pacient_avatar.png' %}">
             </div>
             <div class='info-block'>
-                <p>{{patien.name}}</p>
+                <p>{{patien.name}} {{patien.lastname}} {{patien.patronymic}}</p>
                 <p>{{patien.address}}</p>
                 <p>{{patien.polis}}</p>
             </div>
@@ -55,7 +55,7 @@
                     <img src="{% static 'administration_app/img/phone.png' %}">
                 </div>
                 <div class='title-item'>
-                    <h3>Что то</h3>
+                    <h3>{{patien.phone}}</h3>
                 </div>
                 <div class='clear'></div>
             </div>
@@ -64,7 +64,7 @@
                     <img src="{% static 'administration_app/img/address.png' %}">
                 </div>
                 <div class='title-item'>
-                    <h3>Что то</h3>
+                    <h3>{{patien.sector}}</h3>
                 </div>
                 <div class='clear'></div>
             </div>
@@ -73,7 +73,7 @@
                     <img src="{% static 'administration_app/img/passport.png' %}">
                 </div>
                 <div class='title-item'>
-                    <h3>Что то</h3>
+                    <h3>{{patien.date_of_birth}}</h3>
                 </div>
                 <div class='clear'></div>
             </div>

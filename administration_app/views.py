@@ -42,6 +42,8 @@ def get_staff_page(request):
                 employee['name'] = name_employee
                 employee['post'] = item.post
                 employee['specialization'] = item.specialization
+                employee['type_users'] = item.type_users
+                employee['login_employee'] = User(username=item.login_employee).username
                 return_objects.append(employee)
             flag_view_additional_info = False
             return_objects.reverse()
@@ -65,6 +67,9 @@ def get_employee(request, id_employees=1):
                 employee['name'] = name_employee
                 employee['post'] = item.post
                 employee['specialization'] = item.specialization
+                employee['type_users'] = item.type_users
+                employee['login_employee'] = User(username=item.login_employee).username
+
                 return_objects_staff.append(employee)
 
             flag_view_additional_info = True
@@ -84,10 +89,10 @@ def get_employee(request, id_employees=1):
             return_objects_employee['prescriptions_issued'] = []
             for item in prescriptions_issued:
                 ssued = {}
-                ssued['name_prepations'] = Prepations.objects.get(name=item.name_prepations).name
-                ssued['name_patient'] = Patiens.objects.get(name=item.name_patient).name
-                ssued['lastname_patient'] = Patiens.objects.get(lastname=item.lastname_patient).lastname
-                ssued['patronymic_patient'] = Patiens.objects.get(patronymic=item.patronymic_patient).patronymic
+                ssued['name_prepations'] = Prepations.objects.get(id=item.id_prepations).name
+                ssued['name_patient'] = Patiens.objects.get(id=item.id_patiens).name
+                ssued['lastname_patient'] = Patiens.objects.get(id=item.id_patiens).lastname
+                ssued['patronymic_patient'] = Patiens.objects.get(id=item.id_patiens).patronymic
                 ssued['date_issue'] = item.date_issue
                 return_objects_employee['prescriptions_issued'].append(ssued)
             return_objects_staff.reverse()
@@ -155,10 +160,10 @@ def get_recepts_page(request):
             for recept_info in recepts_info:
                 recept = {}
                 recept['id'] = Recepts.objects.get(id=recept_info.id).id
-                recept['name_prepations'] = Prepations.objects.get(name=recept_info.name_prepations).name                
-                recept['name_patient'] = Patiens.objects.get(name=recept_info.name_patient).name
-                recept['lastname_patient'] = Patiens.objects.get(lastname=recept_info.lastname_patient).lastname
-                recept['patronymic_patient'] = Patiens.objects.get(patronymic=recept_info.patronymic_patient).patronymic                       
+                recept['name_prepations'] = Prepations.objects.get(id=recept_info.id_prepations).name                
+                recept['name_patient'] = Patiens.objects.get(id=recept_info.id_patiens).name
+                recept['lastname_patient'] = Patiens.objects.get(id=recept_info.id_patiens).lastname
+                recept['patronymic_patient'] = Patiens.objects.get(id=recept_info.id_patiens).patronymic                       
                 login = Staff.objects.get(id=recept_info.id_staff).login_employee
                 recept['name_employee'] = User.objects.get(username=login).first_name + ' ' + User.objects.get(username=login).last_name
                 recept['date_issue'] =  recept_info.date_issue
@@ -199,7 +204,6 @@ def get_recepts_page(request):
 
 
 def get_recept(request, id_recepts=1):
-    
     if request.user.is_authenticated:
         type_user = Staff.objects.get(login_employee=request.session['login']).type_users
         if type_user == 'administration':
@@ -207,10 +211,10 @@ def get_recept(request, id_recepts=1):
             recepts_info = Recepts.objects.all()
             for recept_info in recepts_info:
                 recept = {}
-                recept['name_prepations'] = Prepations.objects.get(name=recept_info.name_prepations).name                
-                recept['name_patient'] = Patiens.objects.get(name=recept_info.name_patient).name
-                recept['lastname_patient'] = Patiens.objects.get(lastname=recept_info.lastname_patient).lastname
-                recept['patronymic_patient'] = Patiens.objects.get(patronymic=recept_info.patronymic_patient).patronymic                       
+                recept['name_prepations'] = Prepations.objects.get(id=recept_info.id_prepations).name                
+                recept['name_patient'] = Patiens.objects.get(id=recept_info.id_patiens).name
+                recept['lastname_patient'] = Patiens.objects.get(id=recept_info.id_patiens).lastname
+                recept['patronymic_patient'] = Patiens.objects.get(id=recept_info.id_patiens).patronymic                       
                 login = Staff.objects.get(id=recept_info.id_staff).login_employee
                 recept['name_employee'] = User.objects.get(username=login).first_name + ' ' + User.objects.get(username=login).last_name
                 recept['date_issue'] =  recept_info.date_issue
@@ -218,10 +222,10 @@ def get_recept(request, id_recepts=1):
                 recepts.reverse()
             seleted_recept = Recepts.objects.get(id=id_recepts)
             seleted_recept_for_templade = {}
-            seleted_recept_for_templade['name_prepations'] = Prepations.objects.get(name=seleted_recept.name_prepations).name
-            seleted_recept_for_templade['name_patient'] = Patiens.objects.get(name=seleted_recept.name_patient).name
-            seleted_recept_for_templade['lastname_patient'] = Patiens.objects.get(lastname=seleted_recept.lastname_patient).lastname
-            seleted_recept_for_templade['patronymic_patient'] = Patiens.objects.get(patronymic=seleted_recept.patronymic_patient).patronymic
+            seleted_recept_for_templade['name_prepations'] = Prepations.objects.get(id=seleted_recept.id_prepations).name
+            seleted_recept_for_templade['name_patient'] = Patiens.objects.get(id=seleted_recept.id_patiens).name
+            seleted_recept_for_templade['lastname_patient'] = Patiens.objects.get(id=seleted_recept.id_patiens).lastname
+            seleted_recept_for_templade['patronymic_patient'] = Patiens.objects.get(id=seleted_recept.id_patiens).patronymic
             login = Staff.objects.get(id=seleted_recept.id_staff).login_employee
             seleted_recept_for_templade['name_employee'] = User.objects.get(username=login).first_name + ' ' + User.objects.get(username=login).last_name
             seleted_recept_for_templade['date_issue'] =  seleted_recept.date_issue
@@ -269,6 +273,7 @@ def get_patients_page(request):
         if type_user == 'administration':
             patiens = Patiens.objects.all()
             flag_view_additional_info = False
+            patiens.reverse()
             return render(request, 'administration_app/patients.html', {'patiens':patiens, 'flag_view_additional_info':flag_view_additional_info})
         else:
             auth.logout(request)
@@ -282,6 +287,7 @@ def get_patient(request, id_patients=1):
         if type_user == 'administration':
             patiens = Patiens.objects.all()
             flag_view_additional_info = True
+            patiens.reverse()
             try:
                 return render(request, 'administration_app/patients.html', {'patien':Patiens.objects.get(id=id_patients), 
                 'patiens':patiens,'flag_view_additional_info':flag_view_additional_info})
@@ -442,35 +448,23 @@ def recepts_search(request):
         search_term = request.GET['search_term']
         recepts = []
         return_object = []
-        recepts.extend(Recepts.objects.filter(name_patient=search_term))
-        recepts.extend(Recepts.objects.filter(lastname_patient=search_term))
-        recepts.extend(Recepts.objects.filter(patronymic_patient=search_term))
-        recepts.extend(Recepts.objects.filter(name_prepations=search_term))
-        recepts.extend(Recepts.objects.filter(date_issue=search_term))
-        recepts.extend(User.objects.filter(first_name=search_term))
+        recepts.extend(Prepations.objects.filter(name=search_term))
+        recepts.extend(Prepations.objects.filter(type_prepations=search_term))
+        recepts.extend(Prepations.objects.filter(form_release=search_term))
         for item in recepts:
             recept = {}
-            recept['id'] = Recepts.objects.get(id=item.id).id
-            recept['name_patient'] = Recepts.objects.get(name_patient=item.name_patient).name_patient
-            recept['lastname_patient'] = Recepts.objects.get(lastname_patient=item.lastname_patient).lastname_patient
-            recept['patronymic_patient'] = Recepts.objects.get(patronymic_patient=item.patronymic_patient).patronymic_patient
-            recept['name_prepations'] = Prepations.objects.get(name=item.name_prepations).name
-            recept['date_issue'] =  item.date_issue
+            recept['name_prepations'] = Recepts.objects.get(id_prepations=item.id).name
+            recept['type_prepations'] = Prepations.objects.get(type_prepations=item.type_prepations).type_prepations
+            recept['form_release'] = Prepations.objects.get(form_release=item.form_release).form_release
             return_object.append(recept)
-        recepts = []
-        recepts.extend(Prepations.objects.filter(maker=search_term))
-        recepts.extend(Prepations.objects.filter(form_release=search_term))       
-        for item in recepts:
-                print("-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_")
-                print("-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_")
-                recept = {}
-                recept['id'] = item.id
-                recept['name_patient'] = item.name_patient
-                recept['lastname_patient'] = item.lastname_patient
-                recept['patronymic_patient'] = item.patronymic_patient
-                recept['name_prepations'] = item.name
-                recept['date_issue'] = item.date_issue
-                return_object.append(recept)
+
+        # recepts.extend(Patiens.objects.filter(name=search_term))
+        # recepts.extend(Patiens.objects.filter(lastname=search_term))
+        # for item in recepts:
+        #     recept = {}
+        #     recept['name_patiens'] = Patiens.objects.get(name=item.name).name
+        #     recept['lastname_patiens'] = Patiens.objects.get(lastname=item.lastname).lastname
+        #     return_object.append(recept)
 
         return render(request, 'administration_app/recepts.html', 
             {'recepts':return_object, 'flag_view_additional_info':flag_view_additional_info})
@@ -484,8 +478,24 @@ def delet_employee(request, id_employees=1):
         if type_user == 'administration':    
             try:
                 return_objects = []
-                delete = Staff.objects.get(id=id_employees)
-                delete.delete()
+                if type_user == 'administration':    
+                    try:
+                        delete = Staff.objects.get(id=id_employees)
+                        delete.delete()
+                        
+                        delete_recept = Recepts.objects.get(id_staff=id_employees)   
+                        delete_recept.delete()
+
+                        delete_user = User.object.get(login=login_employee)
+                        delete_user.delete()
+
+                    except Recepts.DoesNotExist:
+                        delete = Staff.objects.get(id=id_employees)
+                        delete.delete()
+
+                        delete_user = User.object.get(login=login_employee)
+                        delete_user.delete()
+                        
                 staff = Staff.objects.all()
                 for item in staff:
                     employee = {}
@@ -496,6 +506,7 @@ def delet_employee(request, id_employees=1):
                     employee['specialization'] = item.specialization
                     return_objects.append(employee)
                 flag_view_additional_info = False
+                return_objects.reverse()
                 return render(request, 'administration_app/staff.html', {'staff':return_objects, 'flag_view_additional_info':flag_view_additional_info})
             except Staff.DoesNotExist:
                 return_objects = []
@@ -508,6 +519,7 @@ def delet_employee(request, id_employees=1):
                     employee['post'] = item.post
                     employee['specialization'] = item.specialization
                     return_objects.append(employee)
+                    return_objects.reverse()
                 return render(request, 'administration_app/staff.html', {'staff':return_objects,})
                 # return render(request, 'administration_app/main.html', {})
             else:
@@ -522,7 +534,9 @@ def delet_patient(request, id_patien=1):
         if type_user == 'administration':    
             try:
                 delete = Patiens.objects.get(id=id_patien)
+                delete_recept = Recepts.objects.get(id_patiens=id_patien)
                 delete.delete()
+                delete_recept.delete()
                 patiens = Patiens.objects.all()
                 flag_view_additional_info = False
                 return render(request, 'administration_app/patients.html', {'patiens':patiens, 'flag_view_additional_info':flag_view_additional_info})
@@ -542,7 +556,9 @@ def delet_preparation(request, id_preparations=1):
         if type_user == 'administration':    
             try:
                 delete = Prepations.objects.get(id=id_preparations)
+                delete_recept = Recepts.objects.get(id_prepations=id_preparations)
                 delete.delete()
+                delete_recept.delete()
                 # preparations = Prepations.objects.exclude(id=id_preparations)
                 preparations = Prepations.objects.all()
                 flag_view_additional_info = False

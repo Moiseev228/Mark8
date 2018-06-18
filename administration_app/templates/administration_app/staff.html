@@ -1,4 +1,4 @@
-{% extends "administration_app.html" %}
+    {% extends "administration_app.html" %}
 {% load staticfiles %}
 
 {% block top_staff %}
@@ -25,7 +25,8 @@
                     <p>{{employee.name}}</p>
                     <p>{{employee.post}}</p>
                     <p>{{employee.specialization}}</p></a>
-                </div>
+                    <p>{{employee.type_users}}</p>
+                    <p>{{employee.login_employee}}</p>                </div>
                 <div class ='delete-block'>
                     <a href=/administration/delete-employee/{{employee.id}}>
                     <img src="{% static 'administration_app/img/delete.png' %}"></a>
@@ -45,6 +46,7 @@
                 <p>{{employee.name}}</p>
                 <p>{{employee.post}}</p>
                 <p>{{employee.specialization}}</p>
+                <p>{{employee.type_users}}</p>
             </div>
             <div class='clear'></div>
         </div>

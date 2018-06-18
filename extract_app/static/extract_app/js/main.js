@@ -19,20 +19,18 @@ function add_recept(){
         type: "GET",
         url: "../new_recept/",
         data:{
-            'name_prepations':document.getElementById('name_prepations').value,
-            'name_patient':document.getElementById('name_patient').value,
-            'lastname_patient':document.getElementById('lastname_patient').value,
-            'patronymic_patient':document.getElementById('patronymic_patient').value,
-            // 'diagnos':document.getElementById('diagnos').value,
-            // 'date_issue':document.getElementById('date_issue').value,
+            'id_prepation':document.getElementById('name_prepations').value,
+            'id_patient':document.getElementById('name_patients').value,
+            'date_issue':document.getElementById('date_issue').value,
         },
         dataType: "html",
         cache: false,
         success: function(data){
-            if (data == 'ok'){
+            data = JSON.parse(data);
+            if (data['status_responce'] == 'ok'){
                 location.reload();
             }
-            else if(data='repit_polis'){
+            else if(data=='repit_polis'){
                 waring_text = 'Пользователь с таким полисом уже существует';
                 open_waring_dialog(waring_text);
             }
@@ -184,6 +182,7 @@ function after_downloading() {
             this.style.color = 'black';
         }
     }
+
     document.getElementById('search-input').onblur = function(){
         if (this.value == '') {
             this.value = 'Поиск';
@@ -208,5 +207,6 @@ function after_downloading() {
                 
             }
        });
+       
     }
 }

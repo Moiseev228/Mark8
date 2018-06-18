@@ -119,4 +119,20 @@ def new_patient(request):
                 return HttpResponse('ok', content_type='text/html')
     else:
         return HttpResponse('no', content_type='text/html')
+
+def new_prepation(request):
+    if request.is_ajax():
+        if request.method == 'GET':
+            # prepation = Prepations.objects.filter(polis=request.GET['polis'])
+            # if len(patient) != 0:
+            #     return HttpResponse('repit_polis', content_type='text/html')
+            # else:
+                prepation = Prepations(name=request.GET['name'],
+                    type_prepations=request.GET['type_prepations'],
+                    maker=request.GET['maker'],
+                    form_release=request.GET['form_release'],)
+                prepation.save()
+                return HttpResponse('ok', content_type='text/html')
+    else:
+        return HttpResponse('no', content_type='text/html')
     
